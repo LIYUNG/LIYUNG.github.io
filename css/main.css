@@ -41,3 +41,88 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+.tagline {
+    font-size: 1.35em;
+    color: #555;
+}
+.muted {
+    color: #666;
+    font-size: 1em;
+}
+.about h2,
+.cv h2 {
+    font-size: 1.75em;
+    margin-top: 1.25em;
+    margin-bottom: 0.35em;
+}
+.cv h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.15em;
+}
+.contacts li {
+    font-size: 1.25em;
+    line-height: 1.5;
+}
+.cv .cv-summary {
+    font-size: 1.25em;
+    line-height: 1.45;
+}
+.cv-contact {
+    margin: 1rem 0 0;
+}
+.cv-contact dt {
+    font-weight: bold;
+    margin-top: 0.65em;
+    font-size: 0.95em;
+    color: #444;
+}
+.cv-contact dd {
+    margin: 0.15em 0 0;
+    padding: 0;
+    font-size: 1.1em;
+}
+.cv-section ul {
+    font-size: 1.15em;
+    line-height: 1.45;
+}
+.cv-role {
+    margin-bottom: 1.5rem;
+}
+.cv-date,
+.cv-role .cv-place {
+    color: #555;
+}
+.cv-date {
+    margin: -0.2em 0 0.5em;
+    font-size: 1em;
+}
+.cv-place {
+    font-weight: normal;
+}
+.cv-title {
+    font-weight: bold;
+}
+.cv-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+@media (min-width: 640px) {
+    .cv-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.cv-skills dt {
+    font-weight: bold;
+    margin-top: 0.75em;
+    font-size: 1.05em;
+}
+.cv-skills dd {
+    margin: 0.25em 0 0;
+    font-size: 1.1em;
+    line-height: 1.45;
+}
+.cv-updated {
+    margin-top: 2.5rem;
+    font-size: 0.95em;
+}
