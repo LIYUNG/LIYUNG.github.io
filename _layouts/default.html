@@ -3,7 +3,7 @@
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="theme-color" content="#121212">
+			<meta name="theme-color" content="#0d0f12">
 			<meta name="color-scheme" content="dark">
 			<title>{{ page.title }}</title>
 			<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,7 @@
 			<link rel="stylesheet" type="text/css" href="/css/main.css">
 		</head>
 		<body>
+			<a class="skip-link" href="#main-content">Skip to content</a>
 			<header class="site-header" role="banner">
 				<nav aria-label="Primary">
 					<ul>
@@ -23,9 +24,9 @@
 				</nav>
 			</header>
 			<div class="container">
-			
+			<main id="main-content" class="site-main" tabindex="-1">
 			{{ content }}
-			
+			</main>
 			</div><!-- /.container -->
 			<footer>
 	    		<ul>

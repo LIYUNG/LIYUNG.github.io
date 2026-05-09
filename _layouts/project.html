@@ -3,7 +3,9 @@ layout: default
 ---
 <article class="project-detail">
 	<nav class="project-breadcrumb" aria-label="Project navigation">
-		<a href="/projects/">Projects</a> <span aria-hidden="true">/</span> {{ page.title }}
+		<a href="/projects/">Projects</a>
+		<span class="breadcrumb-sep" aria-hidden="true">/</span>
+		<span class="breadcrumb-current">{{ page.title }}</span>
 	</nav>
 	<header class="project-detail-head">
 		<h1>{{ page.title }}</h1>
