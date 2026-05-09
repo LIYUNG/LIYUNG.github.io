@@ -1,0 +1,50 @@
+---
+layout: default
+---
+<article class="project-detail">
+	<nav class="project-breadcrumb" aria-label="Project navigation">
+		<a href="/projects/">Projects</a> <span aria-hidden="true">/</span> {{ page.title }}
+	</nav>
+	<header class="project-detail-head">
+		<h1>{{ page.title }}</h1>
+		{% if page.period %}
+		<p class="project-period muted">{{ page.period }}</p>
+		{% endif %}
+		{% if page.links %}
+			{% assign link_count = 0 %}
+			{% for link in page.links %}
+				{% if link.url and link.url != '' %}{% assign link_count = link_count | plus: 1 %}{% endif %}
+			{% endfor %}
+			{% if link_count > 0 %}
+			<ul class="project-links">
+				{% for link in page.links %}
+					{% if link.url and link.url != '' %}
+						<li><a href="{{ link.url }}" rel="noopener noreferrer" target="_blank">{{ link.label | default: 'Link' }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+			{% endif %}
+		{% endif %}
+	</header>
+
+	{% if page.thumbnail %}
+	<figure class="project-cover">
+		<img src="{{ page.thumbnail }}" alt="{% if page.thumbnail_alt %}{{ page.thumbnail_alt | strip_html }}{% else %}{{ page.title | strip_html }} — screenshot or diagram{% endif %}" width="{{ page.thumbnail_width | default: 1200 }}" height="{{ page.thumbnail_height | default: 675 }}" loading="lazy">
+		{% if page.thumbnail_credit %}
+		<figcaption class="muted">{{ page.thumbnail_credit }}</figcaption>
+		{% endif %}
+	</figure>
+	{% endif %}
+
+	{% if page.tech %}
+	<ul class="project-tech" aria-label="Technologies">
+		{% for t in page.tech %}
+		<li>{{ t }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+	<div class="project-body prose">
+		{{ content }}
+	</div>
+</article>

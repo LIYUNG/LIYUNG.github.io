@@ -3,3 +3,13 @@ description: Résumé and profile — full-stack, AWS, Berlin.
 name: Li-Yung Chen — Software Engineer
 markdown: kramdown
 theme: jekyll-theme-cayman
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project

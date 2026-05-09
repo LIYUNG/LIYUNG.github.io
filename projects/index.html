@@ -1,0 +1,37 @@
+---
+layout: default
+title: Projects — Li-Yung Chen
+---
+<div class="projects-page">
+	<h1>Projects</h1>
+	<p class="projects-intro muted">Selected software and infrastructure work — demos, repos, screenshots, and write-ups.</p>
+
+	<section class="project-grid" aria-label="Project listings">
+		{% assign items = site.projects | sort: 'order' %}
+		{% for p in items %}
+		<a class="project-card" href="{{ p.url }}">
+			{% if p.thumbnail %}
+			<span class="project-card-thumb">
+				<img src="{{ p.thumbnail }}" alt="{% if p.thumbnail_alt %}{{ p.thumbnail_alt | strip_html }}{% else %}{{ p.title | strip_html }} — thumbnail{% endif %}" loading="lazy" width="560" height="315">
+			</span>
+			{% else %}
+			<span class="project-card-thumb project-card-thumb--placeholder" aria-hidden="true"></span>
+			{% endif %}
+			<span class="project-card-body">
+				<span class="project-card-title">{{ p.title }}</span>
+				{% if p.period %}
+				<span class="project-card-period muted">{{ p.period }}</span>
+				{% endif %}
+				{% if p.summary %}
+				<span class="project-card-summary">{{ p.summary }}</span>
+				{% endif %}
+				<span class="project-card-cta">View details →</span>
+			</span>
+		</a>
+		{% endfor %}
+	</section>
+
+	{% if items.size == 0 %}
+	<p class="muted">No projects configured yet.</p>
+	{% endif %}
+</div>
