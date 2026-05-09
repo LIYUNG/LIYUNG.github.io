@@ -1,23 +1,46 @@
-/* Dark theme — LiYUNG.github.io */
+/*
+ * Colors & type aligned with Material UI default `createTheme({ palette: { mode: 'dark' } })`
+ * and default typography (Roboto, body1 / subtitle1 / h4–h6 scale).
+ * References: https://mui.com/material-ui/customization/dark-mode/
+ */
+
 :root {
-    --color-bg: #0b0d10;
-    --color-bg-subtle: #0f1218;
-    --color-surface: #13161d;
-    --color-elevated: #1a1f28;
-    --color-border: #2a3140;
-    --color-border-strong: #3d4659;
-    --color-text: #e8eaef;
-    --color-text-muted: #9aa3b5;
-    --color-text-faint: #6b7280;
-    --color-accent: #6eb5ff;
-    --color-accent-hover: #9dccff;
-    --color-accent-glow: rgba(110, 181, 255, 0.22);
-    --font-sans: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, monospace;
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
-    --nav-pad: 1rem 0;
+    /* palette.background */
+    --mui-palette-background-default: #121212;
+    --mui-palette-background-paper: #1e1e1e;
+
+    /* palette.text (dark) */
+    --mui-palette-text-primary: rgba(255, 255, 255, 0.87);
+    --mui-palette-text-secondary: rgba(255, 255, 255, 0.7);
+    --mui-palette-text-disabled: rgba(255, 255, 255, 0.5);
+
+    /* palette.divider */
+    --mui-palette-divider: rgba(255, 255, 255, 0.12);
+
+    /* palette.primary (dark mode defaults) */
+    --mui-palette-primary-main: #90caf9;
+    --mui-palette-primary-light: #e3f2fd;
+    --mui-palette-primary-dark: #42a5f5;
+    --mui-palette-primary-contrastText: rgba(0, 0, 0, 0.87);
+
+    /* palette.action */
+    --mui-palette-action-active: #fff;
+    --mui-palette-action-hover: rgba(255, 255, 255, 0.08);
+    --mui-palette-action-selected: rgba(255, 255, 255, 0.16);
+    --mui-palette-action-disabled: rgba(255, 255, 255, 0.3);
+    --mui-palette-action-disabledBackground: rgba(255, 255, 255, 0.12);
+
+    /* typography */
+    --mui-typography-fontFamily: "Roboto", "Helvetica", "Arial", sans-serif;
+    --mui-typography-fontFamilyMono: "Roboto Mono", ui-monospace, monospace;
+
+    /* shape (default theme.shape.borderRadius) */
+    --mui-shape-borderRadius: 4px;
+
+    /* shadows — dark palette elevation 1 & 2 (simplified from MUI tonal offsets) */
+    --mui-shadow-1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    --mui-shadow-2: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
     --content-max: 42rem;
     --content-wide: 56rem;
 }
@@ -36,44 +59,44 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: var(--font-sans);
-    font-size: 1.0625rem;
-    line-height: 1.55;
-    color: var(--color-text);
-    background: var(--color-bg);
-    background-image:
-        radial-gradient(ellipse 120% 80% at 50% -40%, var(--color-accent-glow), transparent 55%),
-        linear-gradient(180deg, var(--color-bg-subtle) 0%, var(--color-bg) 45%);
-    background-attachment: fixed;
+    font-family: var(--mui-typography-fontFamily);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: var(--mui-palette-text-primary);
+    background-color: var(--mui-palette-background-default);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .site-header {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(11, 13, 16, 0.82);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--mui-palette-background-paper);
+    border-bottom: 1px solid var(--mui-palette-divider);
+    box-shadow: var(--mui-shadow-1);
 }
 
 nav {
     max-width: var(--content-wide);
     margin: 0 auto;
-    padding: 0.85rem 1.5rem;
+    padding: 0.5rem 1.5rem;
 }
 
 nav ul {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.35rem 1.75rem;
+    gap: 0.25rem 1.5rem;
     padding: 0;
     margin: 0;
     list-style: none;
-    font-weight: 600;
-    font-size: 0.9375rem;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    letter-spacing: 0.00714em;
 }
 
 nav ul li {
@@ -82,42 +105,46 @@ nav ul li {
 }
 
 nav a {
-    color: var(--color-text-muted);
+    color: var(--mui-palette-text-secondary);
     text-decoration: none;
-    padding: 0.35rem 0;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s ease, border-color 0.15s ease;
+    padding: 0.375rem 0.5rem;
+    margin: 0 -0.5rem;
+    border-radius: var(--mui-shape-borderRadius);
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav a:hover {
-    color: var(--color-accent);
+    color: var(--mui-palette-text-primary);
+    background-color: var(--mui-palette-action-hover);
     text-decoration: none;
-    border-bottom-color: var(--color-accent);
 }
 
 .container {
     max-width: var(--content-wide);
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
+    padding: 2rem 1.5rem 3.5rem;
 }
 
 footer {
     max-width: var(--content-wide);
     margin: 0 auto;
-    padding: 1.75rem 1.5rem 3rem;
-    border-top: 1px solid var(--color-border);
+    padding: 1.5rem 1.5rem 2.5rem;
+    border-top: 1px solid var(--mui-palette-divider);
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    font-weight: 400;
+    color: var(--mui-palette-text-secondary);
 }
 
 footer ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem 1.75rem;
+    gap: 0.75rem 1.5rem;
     padding: 0;
     margin: 0;
     list-style: none;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 footer ul li {
@@ -126,57 +153,64 @@ footer ul li {
 }
 
 footer a {
-    color: var(--color-text-muted);
+    color: var(--mui-palette-primary-main);
+    font-weight: 500;
 }
 
 footer a:hover {
-    color: var(--color-accent);
+    color: var(--mui-palette-primary-light);
 }
 
 a {
-    color: var(--color-accent);
+    color: var(--mui-palette-primary-main);
     text-decoration: none;
-    transition: color 0.15s ease;
+    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover {
-    color: var(--color-accent-hover);
+    color: var(--mui-palette-primary-light);
     text-decoration: underline;
 }
 
 a:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
+    outline: 2px solid var(--mui-palette-primary-main);
+    outline-offset: 2px;
 }
 
+/* Typography: MUI h4 / h5 / h6 + subtitle1 + body1 */
 h1 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.15;
-    margin: 0 0 0.75rem;
-    color: var(--color-text);
+    font-size: 2.125rem;
+    font-weight: 400;
+    line-height: 1.235;
+    letter-spacing: 0.00735em;
+    margin: 0 0 0.5rem;
+    color: var(--mui-palette-text-primary);
 }
 
 h2 {
-    font-size: clamp(1.35rem, 3vw, 1.65rem);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.334;
+    letter-spacing: 0em;
     margin: 0 0 0.5rem;
-    color: var(--color-text);
+    color: var(--mui-palette-text-primary);
 }
 
 h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
     margin: 0 0 0.35rem;
-    color: var(--color-text);
+    color: var(--mui-palette-text-primary);
 }
 
 p {
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: var(--mui-palette-text-primary);
     margin: 0 0 1rem;
 }
 
@@ -185,8 +219,8 @@ p {
 }
 
 ul.posts {
-    margin: 1.5rem auto 2.5rem;
-    font-size: 1.0625rem;
+    margin: 1.25rem auto 2rem;
+    font-size: 1rem;
 }
 
 ul.posts li {
@@ -194,58 +228,69 @@ ul.posts li {
 }
 
 .tagline {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    color: var(--color-text-muted);
-    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    letter-spacing: 0.00938em;
+    color: var(--mui-palette-text-secondary);
+    margin-bottom: 1rem;
 }
 
 .muted {
-    color: var(--color-text-muted);
-    font-size: 1em;
+    color: var(--mui-palette-text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
 }
 
 .about h2,
 .cv h2 {
-    font-size: 1.35rem;
-    margin-top: 2rem;
-    margin-bottom: 0.65rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid var(--color-border);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--mui-palette-divider);
+    color: var(--mui-palette-text-primary);
 }
 
 .cv h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
-    color: var(--color-text);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 0.15rem;
 }
 
 .contacts li {
-    font-size: 1.0625rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .cv .cv-summary {
-    font-size: 1.125rem;
-    line-height: 1.55;
-    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: var(--mui-palette-text-secondary);
 }
 
 .cv-contact {
     margin: 1.25rem 0 0;
-    padding: 1.25rem 1.35rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    background-color: var(--mui-palette-background-paper);
+    border: 1px solid var(--mui-palette-divider);
+    border-radius: var(--mui-shape-borderRadius);
+    box-shadow: var(--mui-shadow-1);
 }
 
 .cv-contact dt {
-    font-weight: 600;
+    font-weight: 500;
     margin-top: 0.75rem;
     font-size: 0.75rem;
+    line-height: 1.66;
+    letter-spacing: 0.08333em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-faint);
+    color: var(--mui-palette-text-secondary);
 }
 
 .cv-contact dt:first-child {
@@ -253,27 +298,29 @@ ul.posts li {
 }
 
 .cv-contact dd {
-    margin: 0.2rem 0 0;
+    margin: 0.15rem 0 0;
     padding: 0;
     font-size: 1rem;
-    color: var(--color-text);
+    line-height: 1.5;
+    color: var(--mui-palette-text-primary);
 }
 
 .cv-section ul {
     font-size: 1rem;
-    line-height: 1.55;
-    color: var(--color-text-muted);
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    color: var(--mui-palette-text-primary);
     padding-left: 1.25em;
 }
 
 .cv-section li::marker {
-    color: var(--color-text-faint);
+    color: var(--mui-palette-text-secondary);
 }
 
 .cv-role {
-    margin-bottom: 1.75rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--mui-palette-divider);
 }
 
 .cv-role:last-child {
@@ -283,26 +330,28 @@ ul.posts li {
 
 .cv-date,
 .cv-role .cv-place {
-    color: var(--color-text-muted);
+    color: var(--mui-palette-text-secondary);
 }
 
 .cv-date {
-    margin: -0.15em 0 0.6em;
-    font-size: 0.9rem;
+    margin: -0.1em 0 0.5em;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
 }
 
 .cv-place {
-    font-weight: 500;
-    color: var(--color-text-faint);
+    font-weight: 400;
+    color: var(--mui-palette-text-secondary);
 }
 
 .cv-title {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .cv-grid {
     display: grid;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 @media (min-width: 640px) {
@@ -312,38 +361,45 @@ ul.posts li {
 }
 
 .cv-skills dt {
-    font-weight: 600;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: var(--color-text);
+    font-weight: 500;
+    margin-top: 0.875rem;
+    font-size: 0.875rem;
+    line-height: 1.57;
+    letter-spacing: 0.00714em;
+    color: var(--mui-palette-text-primary);
 }
 
 .cv-skills dd {
-    margin: 0.35em 0 0;
-    font-size: 0.98rem;
-    line-height: 1.5;
-    color: var(--color-text-muted);
+    margin: 0.25em 0 0;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    color: var(--mui-palette-text-secondary);
 }
 
 .cv-updated {
-    margin-top: 2.5rem;
-    font-size: 0.9rem;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    color: var(--mui-palette-text-secondary);
 }
 
 .projects-page > h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
 }
 
 .projects-page .projects-intro {
-    font-size: 1.1rem;
-    line-height: 1.55;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
     max-width: var(--content-max);
+    color: var(--mui-palette-text-secondary);
 }
 
 .project-grid {
     display: grid;
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
 }
 
 @media (min-width: 640px) {
@@ -356,24 +412,24 @@ ul.posts li {
     display: flex;
     flex-direction: column;
     color: inherit;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
+    background-color: var(--mui-palette-background-paper);
+    border: 1px solid var(--mui-palette-divider);
+    border-radius: var(--mui-shape-borderRadius);
     overflow: hidden;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    box-shadow: var(--mui-shadow-1);
+    transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a.project-card:hover {
-    border-color: var(--color-border-strong);
-    box-shadow: var(--shadow-card), 0 0 0 1px var(--color-accent-glow);
-    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.23);
+    box-shadow: var(--mui-shadow-2);
     text-decoration: none;
 }
 
 .project-card-thumb {
     display: block;
     aspect-ratio: 16 / 9;
-    background: var(--color-elevated);
+    background-color: var(--mui-palette-background-default);
 }
 
 .project-card-thumb img {
@@ -384,58 +440,68 @@ a.project-card:hover {
 }
 
 .project-card-thumb--placeholder {
-    background: linear-gradient(135deg, var(--color-elevated) 0%, #252b38 50%, var(--color-surface) 100%);
+    background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
 }
 
 .project-card-body {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    padding: 1.15rem 1.25rem 1.35rem;
+    gap: 0.35rem;
+    padding: 1rem 1rem 1.125rem;
 }
 
 .project-card-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--color-text);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+    color: var(--mui-palette-text-primary);
 }
 
 .project-card-period {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    color: var(--mui-palette-text-secondary);
 }
 
 .project-card-summary {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    color: var(--mui-palette-text-secondary);
 }
 
 .project-card-cta {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
+    margin-top: 0.35rem;
+    font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-accent);
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    color: var(--mui-palette-primary-main);
 }
 
 a.project-card:hover .project-card-cta {
-    color: var(--color-accent-hover);
+    color: var(--mui-palette-primary-light);
 }
 
 .project-detail .project-breadcrumb {
-    font-size: 0.9rem;
-    margin-bottom: 1.25rem;
-    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.43;
+    margin-bottom: 1rem;
+    color: var(--mui-palette-text-secondary);
 }
 
 .project-detail-head h1 {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
 }
 
 .project-period {
     font-size: 1rem;
+    line-height: 1.5;
     margin-top: 0;
-    color: var(--color-text-muted);
+    color: var(--mui-palette-text-secondary);
 }
 
 .project-links {
@@ -444,111 +510,129 @@ a.project-card:hover .project-card-cta {
     margin: 1rem 0 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem 1rem;
-    font-size: 1rem;
+    gap: 0.5rem 0.75rem;
+    font-size: 0.875rem;
 }
 
 .project-links a {
     display: inline-block;
-    padding: 0.45rem 0.9rem;
-    background: var(--color-elevated);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    padding: 0.375rem 0.75rem;
+    background-color: var(--mui-palette-action-hover);
+    border: 1px solid var(--mui-palette-divider);
+    border-radius: var(--mui-shape-borderRadius);
     font-weight: 500;
+    line-height: 1.75;
+    letter-spacing: 0.02857em;
+    text-transform: uppercase;
+    color: var(--mui-palette-primary-main);
 }
 
 .project-links a:hover {
-    border-color: var(--color-accent);
+    background-color: var(--mui-palette-action-selected);
+    border-color: rgba(255, 255, 255, 0.23);
     text-decoration: none;
-    color: var(--color-accent-hover);
+    color: var(--mui-palette-primary-light);
 }
 
 .project-cover {
-    margin: 1.5rem 0 0;
+    margin: 1.25rem 0 0;
 }
 
 .project-cover img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
+    border-radius: var(--mui-shape-borderRadius);
+    border: 1px solid var(--mui-palette-divider);
 }
 
 .project-cover figcaption {
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    color: var(--mui-palette-text-secondary);
 }
 
 .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: 0.375rem;
     list-style: none;
     padding: 0;
-    margin: 1.25rem 0 0;
+    margin: 1rem 0 0;
 }
 
 .project-tech li {
     font-size: 0.8125rem;
-    padding: 0.3rem 0.65rem;
-    background: var(--color-elevated);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    color: var(--color-text-muted);
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+    padding: 0.25rem 0.625rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--mui-palette-divider);
+    border-radius: 1rem;
+    color: var(--mui-palette-text-primary);
 }
 
 .prose {
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
     max-width: var(--content-max);
 }
 
 .prose p {
     margin: 1em 0;
     font-size: 1em;
+    color: var(--mui-palette-text-primary);
 }
 
 .prose strong {
-    font-weight: 600;
-    color: var(--color-text);
+    font-weight: 500;
+    color: var(--mui-palette-text-primary);
 }
 
 .prose img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
+    border-radius: var(--mui-shape-borderRadius);
+    border: 1px solid var(--mui-palette-divider);
 }
 
 .prose ul,
 .prose ol {
     margin: 1em 0;
-    padding-left: 1.35em;
-    color: var(--color-text-muted);
+    padding-left: 1.25em;
+    color: var(--mui-palette-text-primary);
 }
 
 .prose code {
-    font-family: var(--font-mono);
-    font-size: 0.88em;
-    background: var(--color-elevated);
-    border: 1px solid var(--color-border);
-    padding: 0.12em 0.4em;
-    border-radius: 4px;
-    color: var(--color-accent-hover);
+    font-family: var(--mui-typography-fontFamilyMono);
+    font-size: 0.8125em;
+    line-height: 1.66;
+    letter-spacing: 0.03333em;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--mui-palette-divider);
+    padding: 0.125em 0.375em;
+    border-radius: var(--mui-shape-borderRadius);
+    color: var(--mui-palette-primary-light);
 }
 
 ::selection {
-    background: rgba(110, 181, 255, 0.35);
-    color: var(--color-text);
+    background-color: rgba(144, 202, 249, 0.35);
+    color: var(--mui-palette-text-primary);
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
     .container {
-        padding-top: 1.75rem;
+        padding-top: 1.5rem;
     }
 
     nav ul {
-        gap: 0.5rem 1.25rem;
+        gap: 0.25rem 1rem;
     }
 }
