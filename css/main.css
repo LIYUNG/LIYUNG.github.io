@@ -243,9 +243,98 @@ p {
     margin: 0 0 1.1rem;
 }
 
-.blurb p:last-child,
+.blurb > p:last-of-type {
+    margin-bottom: 0;
+}
+
 .about p:last-of-type {
     margin-bottom: 0;
+}
+
+.certifications {
+    margin-top: 2.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.certifications h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1.1rem;
+    color: var(--color-text);
+}
+
+.certifications-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.certifications-list li {
+    max-width: 11rem;
+}
+
+.certifications-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.certifications-link:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: var(--color-border);
+}
+
+.certifications-link:focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+}
+
+.certifications-link:visited .certifications-label {
+    color: var(--color-text-supporting);
+}
+
+.certifications-list img {
+    width: 120px;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.certifications-link:hover img {
+    filter: drop-shadow(0 4px 12px rgba(144, 202, 249, 0.25));
+}
+
+.certifications-label {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--color-text-supporting);
+}
+
+.certifications-verify {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-link);
+}
+
+.certifications-link:hover .certifications-verify {
+    color: var(--color-link-hover);
 }
 
 ul.posts {
