@@ -5,7 +5,7 @@ title: CV — Li-Yung Chen
 <div class="cv">
 	<header class="cv-header">
 		<h1>Li-Yung Chen</h1>
-		<p class="cv-summary">Experienced full-stack developer with frontend (React, JavaScript), backend (Node.js), and DevOps (AWS, CI/CD). Builds scalable systems across e-commerce and industrial domains.</p>
+		<p class="cv-summary">Experienced full-stack developer across frontend (React, TypeScript), backend (Node.js), and DevOps (AWS, CI/CD). Has shipped scalable systems end-to-end — from a production study-abroad SaaS platform to robotics, warehouse, and industrial software.</p>
 		<dl class="cv-contact">
 			<dt>Email</dt>
 			<dd><a href="mailto:liyung.chen.leo@gmail.com">liyung.chen.leo@gmail.com</a></dd>
@@ -56,12 +56,14 @@ title: CV — Li-Yung Chen
 		<h2>Side projects</h2>
 
 		<article class="cv-role">
-			<h3>TaiGer Consultancy customer management web app</h3>
+			<h3>TaiGer Consultancy — study-abroad application platform</h3>
 			<p class="cv-date">April 2021 — April 2024</p>
 			<ul>
-				<li>Delivered an applications-management portal production-style from scratch (full-stack).</li>
-				<li>REST APIs with MongoDB, Node.js, and React (Material-UI); CI/CD with AWS CDK and CloudFormation.</li>
-				<li>Cut redundant file and information exchange workflows between applicants, agents, and editors.</li>
+				<li>Lead architect and full-stack engineer of a SaaS platform, built from scratch and in production, that guides students applying to German/European universities through the entire journey — onboarding, document drafting, program selection, application tracking, to final submission — across three roles: students, agents, and editors.</li>
+				<li>Built a large React + TypeScript SPA (Material UI, TanStack Query, Redux, React Router) spanning ~40 feature modules, with full English / 繁體中文 / 简体中文 internationalization; tooled with Vite and a Vitest test suite.</li>
+				<li>Designed the REST backend on Node.js / Express + MongoDB, decomposed into multiple services (core API, transactional email, AWS Lambda jobs) sharing a versioned domain-model npm package across services.</li>
+				<li>Created collaborative document-revision threads for CVs, motivation and recommendation letters — with versioning, status, and inline feedback — replacing scattered email and file exchange between applicants, agents, and editors with a single source of truth.</li>
+				<li>Implemented secure document handling on Amazon S3, role-based multi-tenant access, and student tooling (deadline tracking, university portal-credential management, Uni-Assist workflow, real-time chat); owned DevOps with AWS CDK / CloudFormation, CI/CD, and CloudFront.</li>
 			</ul>
 		</article>
 
