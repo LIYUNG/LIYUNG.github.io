@@ -5,7 +5,7 @@ title: CV — Li-Yung Chen
 <div class="cv">
 	<header class="cv-header">
 		<h1>Li-Yung Chen</h1>
-		<p class="cv-summary">Experienced full-stack developer across frontend (React, TypeScript), backend (Node.js), and DevOps (AWS, CI/CD). Has shipped scalable systems end-to-end — from a production study-abroad SaaS platform to robotics, warehouse, and industrial software.</p>
+		<p class="cv-summary">Experienced full-stack developer across frontend (React, TypeScript), backend (Node.js), and DevOps (AWS, CI/CD), with hands-on AI infrastructure work — RAG retrieval platforms on OpenSearch and vector search. Has shipped scalable systems end-to-end — from a production study-abroad SaaS platform to robotics, warehouse, and industrial software.</p>
 		<dl class="cv-contact">
 			<dt>Email</dt>
 			<dd><a href="mailto:liyung.chen.leo@gmail.com">liyung.chen.leo@gmail.com</a></dd>
@@ -68,14 +68,12 @@ title: CV — Li-Yung Chen
 		</article>
 
 		<article class="cv-role">
-			<h3>TenfoldAI — datapipeline design and infrastructure</h3>
+			<h3>TenfoldAI — RAG retrieval platform &amp; AI document pipeline</h3>
 			<p class="cv-date">March 2025 — November 2025</p>
 			<ul>
-				<li>Led engineering team; reviewed team architectures and design docs, and drove documented technical decisions (reliability, cost, security, delivery).</li>
-				<li>Document-to-Markdown pipeline on AWS (CDK, S3, SNS, SQS, GPU ECS) for large-scale processing.</li>
-				<li>Integrated Stripe subscriptions via event-driven AWS architecture—scalable, highly available, and resilient billing flows.</li>
-				<li>Migrated legacy releases to modern CI/CD with AWS CodePipeline.</li>
-				<li>Rolled out SSO for the internal website and tooling, replacing long-lived credentials that required periodic refresh to regain access.</li>
+				<li>Designed and built (sole author) the RAG retrieval infrastructure on AWS (CDK) — a self-managed Amazon OpenSearch store with hybrid search; led the build-vs-managed evaluation and chose self-managed to keep control of the embedding model and reuse existing embeddings without a costly re-index.</li>
+				<li>Primary author of the AWS infrastructure for an event-driven AI document-ingestion pipeline (S3/SNS/SQS, Lambda, GPU ECS, API Gateway) with CodePipeline CI/CD and CloudWatch→Slack observability; co-authored platform — embedding/retrieval logic built by teammates.</li>
+				<li>Integrated Stripe subscriptions on an event-driven architecture and rolled out identity/access for internal tooling — SSO (AWS IAM Identity Center) plus Amazon Cognito-gated internal tools and pages — replacing long-lived credentials that required periodic refresh.</li>
 			</ul>
 		</article>
 	</section>
@@ -126,6 +124,8 @@ title: CV — Li-Yung Chen
 		<dl class="cv-skills">
 			<dt>AWS &amp; operations</dt>
 			<dd>Resilient application design · S3 / MongoDB · CloudFront / WAF · Lambda / EC2 / ECS · CloudWatch / IAM · ELB / API Gateway · SQS / SNS · IaC (AWS CDK) · CI/CD pipelines</dd>
+			<dt>AI &amp; retrieval</dt>
+			<dd>RAG architecture · self-managed OpenSearch · vector search &amp; embeddings · hybrid (semantic + keyword) search · event-driven ingestion on AWS</dd>
 			<dt>Programming</dt>
 			<dd>JavaScript / TypeScript (strongest) · Python · Java — Spring MVC</dd>
 			<dt>Embedded / tooling</dt>

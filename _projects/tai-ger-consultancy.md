@@ -17,6 +17,7 @@ tech:
   - MongoDB
   - AWS Lambda
   - Amazon S3
+  - Amazon ECS
   - AWS CDK
   - AWS CloudFormation
   - Vite
